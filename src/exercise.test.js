@@ -20,12 +20,12 @@ describe('tests', () => {
     expect(rta).toBe("Hello");
   });
 
-  it("should call setTimeout with 3s", async () => {
+  it("should call setTimeout with 1s", async () => {
     const spy = jest.spyOn(global, "setTimeout");
 
-    const rta = await delay(3000, 'Hello 3');
+    const rta = await delay(1000, 'Hello 1s');
     expect(spy).toHaveBeenCalledTimes(1);
-    expect(spy).toHaveBeenLastCalledWith(expect.any(Function), 3000);
-    expect(rta).toBe("Hello 3");
+    expect(spy).toHaveBeenLastCalledWith(expect.any(Function), 1000);
+    expect(rta).toBe("Hello 1s");
   });
 });
