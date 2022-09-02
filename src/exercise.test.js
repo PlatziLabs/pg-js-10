@@ -1,17 +1,31 @@
-import { runCode } from "./exercise";
+import { delay } from "./exercise";
 
-describe("tests", () => {
-  it("should return [1,2,3,4]", () => {
-    const arrayA = [1, 2];
-    const arrayB = [3, 4];
-    const rta = runCode(arrayA, arrayB);
-    expect(rta).toEqual([1, 2, 3, 4]);
+describe('tests', () => {
+
+  beforeEach(() => {
+    jest.clearAllMocks();
   });
 
-  it("should return [1,2,3,4,5]", () => {
-    const arrayA = [1, 2];
-    const arrayB = [3, 4, 5];
-    const rta = runCode(arrayA, arrayB);
-    expect(rta).toEqual([1, 2, 3, 4, 5]);
+  it("should return 'Hello' after 2s", async () => {
+    const rta = await delay(2000, 'Hello');
+    expect(rta).toBe("Hello");
+  });
+
+  it("should call setTimeout with 2s", async () => {
+    const spy = jest.spyOn(global, "setTimeout");
+
+    const rta = await delay(2000, 'Hello');
+    expect(spy).toHaveBeenCalledTimes(1);
+    expect(spy).toHaveBeenLastCalledWith(expect.any(Function), 2000);
+    expect(rta).toBe("Hello");
+  });
+
+  it("should call setTimeout with 3s", async () => {
+    const spy = jest.spyOn(global, "setTimeout");
+
+    const rta = await delay(3000, 'Hello 3');
+    expect(spy).toHaveBeenCalledTimes(1);
+    expect(spy).toHaveBeenLastCalledWith(expect.any(Function), 3000);
+    expect(rta).toBe("Hello 3");
   });
 });

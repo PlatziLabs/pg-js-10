@@ -1,15 +1,23 @@
-En este desafío tienes un array de números, usando la función map debes retornar todos los números del array multiplicados por dos.
+En este desafío debes crear una función la cual produzca una espera en un tiempo específico y debe funcionar como una Promesa.
+
+La función deberá recibir dos parametros
+
+- time = el tiempo de espera
+- message = el mensaje que debe imprimir despues de la espera
+
+Para ejecutar el tiempo de espera debes usar `window.setTimeout`
 
 La solución debería tener un input y output como los siguientes:
 
 Input
 
 ```js
-solution([2, 4, 5, 6, 8]);
+delay(2000, 'Hello after 2s').then((message) => console.log(message))
 ```
 
 Output
 
 ```sh
-[4,8,10,12, 16]
+# after 2s
+Hello after 2s
 ```

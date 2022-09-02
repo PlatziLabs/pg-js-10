@@ -1,3 +1,3 @@
-export function runCode(arrayA, arrayB) {
+export function delay(time, message) {
   // Tu código aquí 👈
 }
