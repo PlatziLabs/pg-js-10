@@ -12,7 +12,7 @@ La solución debería tener un input y output como los siguientes:
 Input
 
 ```js
-delay(2000, 'Hello after 2s')
+delay(2000, "Hello after 2s")
 .then((message) => console.log(message))
 ```
 
